@@ -1,0 +1,61 @@
+.site-hd {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 25px;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $xx) {
+      gap: 30px;
+    }
+
+    @media (max-width: $less) {
+      gap: 20px;
+    }
+  }
+
+  &__hamburger {
+    display: none;
+  }
+
+  @media (max-width: $md) {
+    &__menu {
+      display: none;
+    }
+
+    &__hamburger {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__row {
+      justify-content: flex-end;
+      gap: 40px;
+    }
+
+    &__logo {
+      flex: 1 1;
+
+      @media (max-width: $xx) {
+        a { 
+          width: 60px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@import "profile";

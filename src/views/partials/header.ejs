@@ -1,0 +1,37 @@
+<img
+  width="1440"
+  height="700"
+  data-src="img/header_bg.jpg"
+  src="<%- placeholder %>"
+  class="b-lazy site-hd__bg"
+>
+
+<div class="container site-hd__container">
+  <div class="site-hd__row">
+    <div class="site-hd__logo">
+      <%- include('header/logo'); %> 
+    </div>
+    <div class="site-hd__hamburger">
+      <a href="#menutable" class="hamburger" data-fancybox data-close>
+        <svg width="20" height="20">
+          <use href="#hamburger"></use>
+        </svg>
+      </a>
+    </div>
+    <div class="site-hd__menu">
+      <%- include('header/menu'); %>
+    </div>
+    <div class="site-hd__social-list">
+      <%- include('header/social-list'); %>
+    </div>
+    <div class="site-hd__profile">
+      <%- include('header/profile'); %>
+    </div>
+  </div>
+</div>
+
+<div class="menutable popup animate__animated" id="menutable">
+  <div class="menutable__menu">
+    <%- include('header/menu'); %>
+  </div>
+</div>

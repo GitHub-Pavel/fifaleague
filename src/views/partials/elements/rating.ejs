@@ -1,0 +1,17 @@
+<div class="rating">
+  <% for (let i=0; i<5; i++) { %>
+    <% if (locals.rating > i) { %>
+      <div class="rating__star rating__star--active">
+        <svg width="12" height="12">
+          <use href="#star"></use>
+        </svg>
+      </div>
+    <% } else { %>
+      <div class="rating__star">
+        <svg width="12" height="12">
+          <use href="#star"></use>
+        </svg>
+      </div>
+    <% } %>   
+  <% } %>
+</div>

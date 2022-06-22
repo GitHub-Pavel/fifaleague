@@ -1,0 +1,19 @@
+<% 
+  const socialList = [
+    "Instagram", 
+    "VK",
+    "Youtube"
+  ]
+%> 
+
+<ul class="social-list">
+  <% socialList.forEach(item => { %>
+    <li>
+      <a href="#" title="<%= item %>">
+        <svg width="22" height="22">
+          <use href="#<%= item.toLowerCase() %>"></use>
+        </svg>
+      </a>
+    </li>
+  <% }); %> 
+</ul>

@@ -1,0 +1,33 @@
+p {
+  @include text_letter_space();
+} 
+ 
+.text {
+  &-small {
+    font-size: 14px;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+  
+  &-semibold {
+    font-weight: 600;
+  }
+  
+  &-italic {
+    font-style: italic;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-nowrap {
+    white-space: nowrap;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+}

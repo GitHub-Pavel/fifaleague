@@ -1,0 +1,26 @@
+@mixin text_big {
+  font-size: 14px;
+  line-height: 1.7em;
+
+  @media (max-width: $sm) {
+    font-size: 12px;
+  }
+}
+
+@mixin text_uppercase {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@mixin text_letter_space {
+  letter-spacing: 0.05em;
+}
+
+@mixin text_normal {
+  font-size: 12px;
+  line-height: 1.5em;
+
+  @media (max-width: $sm) {
+    font-size: 10px;
+  }
+}

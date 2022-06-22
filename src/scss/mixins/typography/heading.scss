@@ -1,0 +1,18 @@
+@mixin heading_h5 {
+  font-size: 18px;
+  line-height: 1.23em;
+
+  @media (max-width: $sm) {
+    font-size: 16px;
+  }
+}
+
+@mixin heading_h4 {
+  font-size: 24px;
+  line-height: 1.2em;
+}
+
+@mixin heading_h3 {
+  font-size: 36px;
+  line-height: 1.2em;
+}

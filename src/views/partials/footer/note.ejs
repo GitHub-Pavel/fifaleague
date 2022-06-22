@@ -1,0 +1,17 @@
+<% 
+const note = [
+  "Инструкция новичкам",
+  "Часто задаваемые вопросы",
+  "Политика конфиденциальности"
+];
+%> 
+
+<div class="note">
+  <ul class="note-list">
+    <% note.forEach(item => { %>
+      <li class="note-list__item">
+        <a href="#" class="note-list__link" title="<%=item%>"><%=item%></a>
+      </li>
+    <% }); %> 
+  </ul>
+</div>

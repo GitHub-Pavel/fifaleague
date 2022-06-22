@@ -1,0 +1,16 @@
+.btn {
+  @include text_big();
+  @include text_letter_space();
+  @include text_uppercase();
+
+  border-radius: 5px;
+  line-height: 35px;
+  font-weight: 600;
+  color: var(--white);
+  padding: 0 30px;
+  display: inline-block;
+  text-align: center;
+  transition: .2s ease-in-out;
+}
+
+@import "primary";

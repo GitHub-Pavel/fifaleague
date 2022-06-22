@@ -1,0 +1,20 @@
+@mixin link_blue {
+  text-decoration: underline;
+  color: var(--light-blue);
+
+  @media (min-width: $md) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin link_reverse {
+  text-decoration: none;
+
+  @media (min-width: $md) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

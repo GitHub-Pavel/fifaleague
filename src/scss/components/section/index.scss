@@ -1,0 +1,11 @@
+.section {
+  padding-bottom: 50px;
+
+  &__dark-blue-wrap {
+    @include block_dark_blue;
+  }
+}
+
+@import "profileinfo";
+@import "lastgames";
+@import "teamdata";

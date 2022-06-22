@@ -1,0 +1,4 @@
+@mixin button_h5_semibold {
+  @include heading_h5;
+  font-weight: 600;
+}

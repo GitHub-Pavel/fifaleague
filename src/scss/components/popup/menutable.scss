@@ -1,0 +1,41 @@
+.menutable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: var(--blue);
+  padding: 100px 15px 60px;
+  align-items: center;
+  justify-content: center;
+
+  .popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--blue);
+    padding: 20px;
+  }
+
+
+  .main-menu {
+    ul {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    a {
+      @include heading_h4;
+    }
+  }
+}
+
+.fancybox-active {
+  .menutable {
+    display: flex !important;
+  }
+}

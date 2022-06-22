@@ -1,0 +1,21 @@
+<% 
+const classes = {
+  main: classnames( 'profile', {
+    "profile--authorized": locals.isAuthorizedCompiled
+  })
+}
+%> 
+
+<div class="<%=classes.main%>">
+  <div class="profile__row">
+    <div class="profile__col profile__col--img">
+      <%- include('image', locals); %>
+    </div>
+    <div class="profile__col profile__col--button">
+      <%- include('button', locals); %>
+    </div>
+    <div class="profile__col profile__col--logout">
+      <a href="#" class="profile__logout" title="Выход">Выход</a>
+    </div>
+  </div>
+</div>

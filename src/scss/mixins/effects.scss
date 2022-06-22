@@ -1,0 +1,25 @@
+@mixin effect_underline($isHover: 1) {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    height: 3px;
+    background: var(--blue-green);
+    width: 0;
+    transition: width .3s ease-in-out;
+  }
+
+  @if ($isHover == 1) {
+    &:hover::after, 
+    &.active::after {
+      width: 100%;
+    }
+  } @else {
+    &.active::after {
+      width: 100%;
+    }
+  }
+}

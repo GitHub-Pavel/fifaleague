@@ -1,0 +1,185 @@
+.profileinfo {
+  &__wrap {
+    padding: 50px 40px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 100px;
+
+    @media (max-width: $lg ) {
+      gap: 40px;
+      padding: 40px 30px;
+    }
+
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: $xs) {
+      padding: 30px 15px;
+    }
+  }
+
+  &-user {
+    &__img {
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 30px;
+
+      &-wrap {
+        text-align: center;
+      }
+    }
+
+    &__btns {
+      display: grid;
+      justify-content: center;
+      gap: 20px;
+
+      .btn {
+        width: 170px;
+      }
+    }
+  }
+
+  &-infoblock {
+    &-user {
+      @include block_border_blue_green;
+
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__team,
+      &__rating {
+        @include text_letter_space;
+        @include text_big;
+      }
+
+      @media (max-width: $less) {
+        grid-template-columns: 1fr; 
+        grid-template-areas:
+          "name"
+          "team"
+          "rate"
+          "ready"
+          "btn"
+        ;
+        gap: 10px;
+
+        &__team {
+          text-align: center;
+        }
+
+        &__is-ready {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: $xs) {
+        grid-template-columns: 1fr 1fr 1.5fr;
+      }
+
+      @media (max-width: $sm) {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-areas: 
+          "name name name"
+          "team rate ready"
+          "btn btn btn"
+        ;
+
+        &__name {
+          grid-area: name;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        &__team {
+          grid-area: team;
+        }
+
+        &__rating {
+          grid-area: rate;
+          text-align: center;
+        }
+
+        &__is-ready {
+          grid-area: ready;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        &__btn {
+          grid-area: btn;
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__desc {
+      padding: 25px 30px 0;
+
+      @include text_letter_space();
+      @include text_big();
+
+      @media (max-width: $md) {
+        padding: 15px 25px 0;
+      }
+    }
+
+    &__table {
+      &s {
+        padding: 25px 30px;
+        border-bottom: 1px solid var(--blue-semi-dark);
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        column-gap: 100px;
+        grid-template-areas:
+          "info dates"
+          "info rating"
+        ;
+
+        @media (max-width: $md) {
+          padding: 15px 20px;
+          grid-template-columns: 1fr;
+          row-gap: 20px;
+          grid-template-areas:
+            "info"
+            "dates"
+            "rating"
+          ;
+        }
+      }
+
+      &-info {
+        grid-area: info;
+
+        th {
+          width: 90px;
+
+          @media (max-width: $md) {
+            width: 160px;
+          }
+        }
+      }
+
+      &-dates {
+        grid-area: dates;
+      }
+
+      &-rating {
+        grid-area: rating;
+      }
+
+      &-rating,
+      &-dates {
+        th {
+          width: 160px;
+        }
+      }
+    }
+  }
+}

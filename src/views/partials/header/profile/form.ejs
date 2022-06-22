@@ -1,0 +1,28 @@
+<form action="#" class="profile-popup__form">
+  <label class="profile-popup__label">
+    <span class="profile-popup__text">Логин / никнейм</span>
+    <input type="text" class="field profile-popup__field" name="username">
+  </label>
+  <label class="profile-popup__label">
+    <span class="profile-popup__text">Пароль</span>
+    <input type="password" class="field profile-popup__field" name="password">
+  </label>
+  <div class="profile-popup__label">
+    <div class="empty"></div>
+    <%- include('/partials/field/checkbox', {
+      value: "remembered",
+      title: "Запомнить меня",
+      name: "remember",
+      wrap: {
+        class: "profile-popup__checkbox"
+      },
+      text: {
+        value: "Запомнить меня",
+        class: "profile-popup__text"
+      }
+    }); %>
+  </div>
+  <div class="profile-popup__btn-wrap">
+    <%- include('/partials/btns/primary', {value: "Войти"}); %>
+  </div>
+</form>

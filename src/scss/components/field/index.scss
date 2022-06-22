@@ -1,0 +1,10 @@
+@import "checkbox";
+
+.field {
+  border: 1px solid var(--blue-green);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--white);
+  line-height: 25px;
+  padding: 0 6px;
+}

@@ -1,0 +1,23 @@
+<% 
+const list = [
+  "Турниры",
+  "Регламент",
+  "Рейтинг",
+  "Новости",
+] 
+%> 
+
+<nav class="main-menu">
+  <ul>
+    <% list.forEach(item => { %>
+      <li>
+        <a 
+          href="#"
+          title="<%=item%>"
+        >
+          <%= item %>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</nav>

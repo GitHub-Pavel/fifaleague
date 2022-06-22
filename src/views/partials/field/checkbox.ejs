@@ -1,0 +1,30 @@
+<% 
+const classes = {
+  main: classnames("checkbox", {
+    [locals?.wrap?.class || '']: locals?.wrap?.class !== undefined
+  }),
+  title: classnames("checkbox__title", {
+    [locals?.text?.class || '']: locals?.text?.class !== undefined
+  })
+};
+%> 
+
+<label 
+  class="<%=classes.main%>"
+  <% if (locals?.title) { %> 
+    title="<%=locals.title%>"
+  <% } %>
+>
+  <input 
+    type="checkbox" 
+    name="<%=locals.name%>" 
+    id="<%=locals.value%>" 
+    class="checkbox__field visually-hidden"
+  >
+  <span class="checkbox__box"></span>
+  <span 
+    class="<%=classes.title%>"
+  >
+    <% if (locals?.text?.value) { %> <%= locals.text.value %> <% } %>
+  </span>
+</label>

@@ -1,0 +1,26 @@
+<% 
+const lazyLoadingClass = !locals.slider ? "b-lazy" : "swiper-lazy";
+%> 
+
+<div class="trophies-card">
+  <div class="
+    trophies-card__img-wrap
+    <% if (!locals.img) { %>
+      trophies-card__img-wrap--no-img
+    <% } %>  
+  ">
+    <% if (locals.img) { %>
+      <img
+        width="70"
+        height="70"
+        data-src="img/trophies-card.jpg"
+        src="<%- placeholder %>"
+        class="<%=lazyLoadingClass%> trophies-card__img"
+      >
+      <% if(locals.slider) { %>
+        <div class="swiper-lazy-preloader"></div>
+      <% } %>  
+    <% } %> 
+  </div>
+  <div class="trophies-card__desc">Самый результативный игрок чемпионата FIFA 20</div>
+</div>

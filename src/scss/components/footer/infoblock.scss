@@ -1,0 +1,47 @@
+.infoblock {
+  &-supported {
+    &-list {
+      --list-gap: 72px;
+
+      list-style: none;
+      padding: 0;
+      margin: 0 calc(var(--list-gap)/2*-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: $lg ) {
+        --list-gap: 40px;
+      }
+
+      @media (max-width: $md) {
+        --list-gap: 20px;
+      }
+
+      &__item {
+        padding: 0 calc(var(--list-gap)/2);
+      }
+
+      &__img {
+        height: 35px;
+
+        @media (max-width: $xx) {
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  &__rights {
+    @include text_big();
+    @include text_letter_space();
+    
+    margin-top: 60px;
+    text-decoration: underline;
+
+    @media (max-width: $sm) {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import "infoblock";
+@import "note";
+
+.site-ft {
+  position: relative;
+  padding: 90px 0 100px;
+
+  @media (max-width: $md) {
+    padding: 40px 0 60px;
+  }
+
+  @media (max-width: $sm) {
+    padding: 0 0 60px;
+  }
+
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+
+    @media (max-width: $sm) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<% if (locals.isAuthorizedCompiled) { %>
+<a href="#header_profile" class="profile-button" title="Меню" data-fancybox data-bodyclass="profile-popup-open">
+<% } else { %>
+<a href="#close" class="profile-button popup-close" title="Закрыть">
+<% } %>
+  <span class="profile-button__username"><%= locals.authorizedInfo.user.name %></span>
+  <svg width="16" height="16" class="profile-button__icon">
+    <use href="#arrow_down"></use>
+  </svg>
+</a>

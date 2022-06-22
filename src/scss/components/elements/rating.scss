@@ -1,0 +1,24 @@
+:root {
+  --elements-rating-gap: 6px;
+  --elements-rating-size: 12px;
+}
+
+.rating {
+  display: grid;
+  grid-template-columns: repeat(5, var(--elements-rating-size));
+  gap: var(--elements-rating-gap);
+
+  &__star {
+    svg {
+      fill: var(--blue-transparent);
+      width: var(--elements-rating-size);
+      height: var(--elements-rating-size);
+    }
+
+    &--active {
+      svg {
+        fill: var(--yellow);
+      }
+    }
+  }
+}

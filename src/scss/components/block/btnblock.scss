@@ -1,0 +1,20 @@
+.btnblock {
+  position: relative;
+
+  &__btncount {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 50%;
+    padding-top: 1px;
+    color: var(--blue-green);
+    pointer-events: none;
+  }
+}

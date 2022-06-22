@@ -1,0 +1,25 @@
+<% 
+const title = locals.title?.template ? locals.title.template : include('title', {title: locals.title.value});
+
+const classes = {
+  section: locals.class ? locals.class : false,
+  wrap() {
+    return this.section ? this.section+"__wrap" : "";
+  },
+  accordion() {
+    return this.section ? this.section+"__accordion" : "";
+  },
+  head() {
+    return this.section ? this.section+"__head" : "";
+  }
+};
+%> 
+
+<section class="section <%=classes.section%>">
+  <div class="container">
+    <div class="section__dark-blue-wrap <%=classes.wrap()%>">
+      <div class="accordion <%=classes.accordion()%>">
+        <button class="accordion__head <%=classes.head()%>">
+          <%- title %>
+        </button>
+        <div class="accordion__body">

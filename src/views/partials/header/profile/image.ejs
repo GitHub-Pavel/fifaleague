@@ -1,0 +1,36 @@
+<% 
+const classes = {
+  main: classnames('profile-img', {
+    "profile-img--has-image": locals.authorizedInfo.user.media,
+    "popup-close": !locals.isAuthorizedCompiled
+  })
+};
+%> 
+
+
+<% if (locals.isAuthorizedCompiled) { %>
+<a 
+  href="#header_profile"
+  class="<%=classes.main%>" 
+  title="<%=locals.authorizedInfo.user.name%>"
+  data-fancybox data-bodyclass="profile-popup-open" 
+>
+<% } else { %>
+<a 
+  href="#close"
+  class="<%=classes.main%>" 
+  title="Закрыть"
+>
+<% } %>
+  <% if (locals.authorizedInfo.user.media) { %>
+    <img
+      width="40"
+      height="40"
+      data-src="<%=locals.authorizedInfo.user.mediaUrl%>"
+      src="<%=placeholder%>"
+      class="b-lazy profile-img__icon"
+      alt="<%= locals.authorizedInfo.user.name %>"
+    >
+  <% } %>
+  <span class="profile-img__count"><%= locals.authorizedInfo.messages %></span>
+</a>

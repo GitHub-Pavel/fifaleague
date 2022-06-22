@@ -1,0 +1,9 @@
+@mixin popup_top_right {
+  position: absolute;
+  top: 0;
+  right: calc(50vw - var(--con-width)/2);
+
+  @media (max-width: $lg ) {
+    right: 0;
+  }
+}

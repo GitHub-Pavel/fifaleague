@@ -1,0 +1,7 @@
+.site-hd {
+  &__popup {
+    @include popup_top_right();
+    @include popup_border_blue();
+    @include popup_background_transparent();
+  }
+}

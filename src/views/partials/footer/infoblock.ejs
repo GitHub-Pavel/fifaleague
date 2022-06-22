@@ -1,0 +1,34 @@
+<% 
+const supported = [
+  {
+    name: "PS4",
+    src: "img/footer/supported/ps4.svg"
+  },
+  {
+    name: "XBOX",
+    src: "img/footer/supported/xbox.svg"
+  },
+  {
+    name: "Windows",
+    src: "img/footer/supported/windows.svg"
+  },
+];
+%> 
+
+<div class="infoblock">
+  <ul class="infoblock-supported-list">
+    <% supported.forEach(item => { %>
+      <li class="infoblock-supported-list__item">
+        <img
+          height="35"
+          data-src="<%= item.src %>"
+          src="<%- placeholder %>"
+          class="b-lazy infoblock-supported-list__img"
+          alt="<%= item.name %>"
+          title="<%= item.name %>"
+        >
+      </li>
+    <% }); %> 
+  </ul>
+  <div class="infoblock__rights">Все права защищены © <%= new Date().getFullYear(); %></div>
+</div>

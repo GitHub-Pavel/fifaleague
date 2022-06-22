@@ -1,0 +1,14 @@
+<head>
+		<title><%= name %> - <%= locals.title %></title>
+		<% if (locals?.meta) { %>
+			<%- include('meta', locals.meta); %>
+		<% } %>
+		<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-sprite="img/sprite.svg" class="loading">
+	<div class="site">
+    <header class="site-hd" role="banner">
+			<%- include('../partials/header'); %>
+    </header>
+
+		<main class="site-bd" role="main">

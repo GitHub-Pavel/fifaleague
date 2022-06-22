@@ -1,0 +1,21 @@
+.main-menu {
+  --menu-gap: 46px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0 calc(var(--menu-gap)/2*-1);
+  }
+
+  li {
+    padding: 0 calc(var(--menu-gap)/2);
+  }
+
+  a {
+    @include text_uppercase();
+    @include text_big();
+    @include text_letter_space();
+    @include effect_underline;
+  }
+}

@@ -1,0 +1,61 @@
+.teamdata {
+  &__box {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 140px;
+    padding: 35px 50px 80px;
+
+    @media (max-width: $lg ) {
+      gap: 80px;
+    }
+
+    @media (max-width: $md) {
+      padding: 25px 40px 60px;
+      gap: 60px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: $sm) {
+      padding: 10px 15px 20px;
+    }
+  }
+
+  &__datas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr min-content;
+    gap: 30px 60px;
+
+    @media (max-width: $lg) {
+      gap: 20px 30px;
+    }
+
+    @media (max-width: $sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__tables {
+    display: grid;
+    gap: 25px;
+
+    th {
+      width: 180px;
+
+      @media (max-width: $sm) {
+        width: 140px;
+      }
+
+      @media (max-width: $less) {
+        width: 120px;
+        padding-right: 10px;
+      }
+    }
+
+    td {
+      @media (max-width: $less) {
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

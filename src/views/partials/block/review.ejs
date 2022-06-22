@@ -1,0 +1,12 @@
+<div class="review">
+  <ul class="review-list">
+    <% for(let i=0; i<6; i++) { %>
+      <li class="review-list__item">
+        <%- include('/partials/cards/review-card'); %>
+      </li>
+    <% } %>
+  </ul>
+  <div class="review__foot">
+    <button class="review__more" title="Ещё отзывы">Ещё отзывы</button>
+  </div>
+</div>

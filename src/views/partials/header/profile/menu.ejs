@@ -1,0 +1,18 @@
+<div class="profile-menu popup site-hd__popup animate__animated" id="header_profile">
+  <%- include('authorized', locals.authorizedInfo); %>
+  <div class="profile-menu__listwrap">
+    <ul>
+      <% locals.getMenu().forEach(item => { %>
+        <li>
+          <a 
+            href="#" 
+            <% if (item.count) { %> 
+              data-count="<%=item.count%>"
+            <% } %>
+            title="<%=item.value%>"
+          ><%=item.value%></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</div>

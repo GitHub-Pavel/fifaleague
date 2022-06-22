@@ -1,0 +1,47 @@
+<% 
+const {
+  name,
+  table,
+  value,
+  resultCount = 3,
+  result = ["В", "Н", "П"]
+} = locals.table;
+
+const columns = {
+  count: table[0]?.value?.length ? table[0].value.length : 0,
+  isResult() {
+    return this.count > resultCount;
+  }
+}
+%> 
+
+<div class="statistic">
+  <div class="statistic__title"><%= name %></div>
+  <div class="statistic__table">
+    <table>
+      <tbody>
+        <tr>
+          <th></th>
+
+          <% result.forEach(head => { %>
+            <th><%=head%></th>
+          <% }); %> 
+
+          <% if (columns.isResult()) { %>
+            <th>Всего</th>
+          <% } %>
+        </tr>
+
+        <% table.forEach(row => { %>
+          <tr>
+            <td><%=row.name%></td>
+
+            <% row.value.forEach(column => { %>
+              <td><%=column%></td>
+            <% }); %> 
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>

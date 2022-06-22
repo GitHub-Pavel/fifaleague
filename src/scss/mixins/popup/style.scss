@@ -1,0 +1,8 @@
+@mixin popup_border_blue {
+  border: 1px solid var(--blue-green);
+  filter: drop-shadow(1px 1px 10px rgba(0, 0, 0, 0.4));
+}
+
+@mixin popup_background_transparent {
+  background: transparent;
+}

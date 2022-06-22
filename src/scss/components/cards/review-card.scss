@@ -1,0 +1,48 @@
+.review-card {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 70px;
+
+  @media (max-width: $md) {
+    gap: 40px;
+  }
+
+  @media (max-width: $xs) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  &__link {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 30px;
+
+    @include link_reverse;
+
+    @media (max-width: $md) {
+      gap: 20px;
+    }
+  }
+
+  &__img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+  }
+
+  &__info {
+    display: grid;
+
+    @include text_letter_space;
+  }
+
+  &__username {
+    @include text_big;
+  }
+
+  &__comment {
+    @include text_big;
+  }
+}
