@@ -1,0 +1,110 @@
+<%
+const pageinfo = {
+  title: 'Registration',
+  meta: true,
+  authorized: false,
+  footer: {
+    background: "img/footer_bg.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <%- include('partials/section/dark-blue/head', {class: "fifaforms", modifier: "fifaforms--registration fifaforms--center"}); %> 
+      <h1 class="section__title h2">Регистрация</h1>
+      <form action="#" class="fifaforms__form">
+        <%- include('/partials/field/input', {
+          placeholder: "Логин / Никнейм",
+          type: "text"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Электронная почта",
+          type: "email"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Телефон",
+          type: "tel"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Фамилия",
+          type: "text"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Имя",
+          type: "text"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Отчество",
+          type: "text"
+        }); %>
+        <%- include('/partials/field/date', {placeholder: "Дата рождения"}); %> 
+        <%- include('/partials/field/select', {
+          values: [
+            {name: "ps4", value: "PS4"},
+            {name: "xbox", value: "Xbox"},
+            {name: "pc", value: "PC"},
+          ],
+          placeholder: "Платформа"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "ID",
+          type: "text"
+        }); %>
+        <%- include('/partials/field/select', {
+          values: [
+            {name: "ru", value: "Россия"},
+            {name: "en", value: "Америка"},
+            {name: "by", value: "Беларусь"},
+          ],
+          placeholder: "Страна"
+        }); %>
+        <%- include('/partials/field/select', {
+          values: [
+            {name: "rnd", value: "Ростов-на-Дону"},
+            {name: "moscow", value: "Москва"},
+            {name: "piter", value: "Санк-Питербург"},
+          ],
+          placeholder: "Город"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Пароль",
+          type: "password"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Повторите пароль",
+          type: "password"
+        }); %>
+        <%- include('/partials/field/checkbox', {
+          value: "ready",
+          title: "Я принимаю условия",
+          name: "is_ready",
+          text: {
+            value: "Я принимаю условия пользовательского соглашения и даю согласие на обработку персональных данных в соответствии с законодательством РФ"
+          }
+        }); %>
+        <%- include('/partials/btns/primary', {value: "Зарегестрироваться"}); %>
+      </form>
+    <%- include('partials/section/dark-blue/foot'); %> 
+
+  <%- include('common/foot', pageinfo); %>
+</html>

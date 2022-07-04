@@ -1,0 +1,25 @@
+.articles-list--news {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 110px;
+
+  @media (max-width: $lg ) {
+    gap: 80px;
+  }
+
+  @media (max-width: $md) {
+    gap: 60px;
+  }
+
+  @media (max-width: $sm) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: $xs) {
+    gap: 30px;
+  }
+}

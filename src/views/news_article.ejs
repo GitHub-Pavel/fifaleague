@@ -1,0 +1,88 @@
+<%
+const pageinfo = {
+  title: 'Title',
+  meta: true,
+  authorized: false,
+  footer: {
+    background: "img/footer_bg-3.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <%- include('partials/section/dark-blue/head', {class: "article", modifier: "article--news"}); %>
+      <div class="article-bd">
+        <div class="article-bd__img-wrap">
+          <img
+            width="400"
+            height="250"
+            data-src="img/news_article.jpg"
+            src="<%- placeholder %>"
+            class="b-lazy article-bd__img"
+            title="Дзюба мог уехать в «Тоттенхэм». Что об этом известно"
+          >
+        </div>
+        <div class="article-bd__content">
+          <div class="article-bd__head">
+            <h2 class="article-bd__title">Дзюба мог уехать в «Тоттенхэм». Что об этом известно</h2>
+            <div class="article-bd__info">30.01.2020 | 10:48   ( новости футбола )</div>
+          </div>
+          <div class="article-bd__body">
+            <div class="entry-content">
+              <p>Дзюба входил в шорт-лист главного тренера «шпор» Жозе Моуринью. Лондонский клуб искал нового центрфорварда из-за травмы своего лучшего бомбардира Гарри Кейна, который выбыл на несколько месяцев из-за разрыва мышцы бедра. По имеющейся информации, «Тоттенхэм» был готов как взять нападающего «Зенита» в аренду до конца сезона, так и полностью выкупить права на него.</p>
+              <p>По-видимому, в «Тоттенхэме» рассчитывали на то, что лучший бомбардир и лучший ассистент РПЛ (11 голов и 9 голевых передач в 19 матчах) будет стоить недорого, поскольку контракт Дзюбы с «Зенитом» заканчивается всего через полгода. Однако чемпионы России отказались отпускать одного из своих ключевых игроков. Тем более Артём уже договорился с петербургским клубом о новом контракте. Осталось дождаться официального объявления. Говорят, договор заключат по схеме «2+1». Вдобавок и сам нападающий не до конца был уверен, что это лучший момент для перехода. Дзюба мечтает попробовать свои силы в чемпионате Англии, но сейчас смена команды могла повлиять на перспективы его участия в Евро-2020.</p>
+              <p>Подробнее на «Чемпионате»: <br><a href="https://www.championat.com/football/article-3962394-pochemu-artjom-dzjuba-ne-pereshjol-iz-zenita-v-tottenhem-podrobnosti.html?utm_source=copypaste">https://www.championat.com/football/article-3962394-pochemu-artjom-dzjuba-ne-pereshjol-iz-zenita-v-tottenhem-podrobnosti.html?utm_source=copypaste</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-ft">
+        <ul class="article-ft-list articles-list articles-list--news">
+          <% for(let i=0; i<2; i++) { %> 
+            <li class="articles__item">
+              <%- include('partials/cards/news-card'); %> 
+            </li>
+          <% } %> 
+        </ul>
+        <%- include('partials/block/more'); %>
+      </div>
+    <%- include('partials/section/dark-blue/foot'); %>
+
+    <section class="section homepage-blocks">
+      <div class="container">
+        <div class="homepage-blocks__wrap">
+          <%- include('partials/block/homepage-block', {title: "Новости лиги"}); %>
+          <%- include('partials/block/homepage-block', {title: "Новости FIFA"}); %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <%- include('partials/banners/homebanner', {media: {full: "img/banner-4.jpg", small: "img/banner-4-xx.jpg"}}); %> 
+      </div>
+    </section>
+
+  <%- include('common/foot', pageinfo); %>
+</html>

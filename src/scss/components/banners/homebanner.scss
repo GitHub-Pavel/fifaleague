@@ -1,0 +1,25 @@
+.homebanner {
+  display: block;
+  width: 100%;
+  padding-bottom: 30%;
+  position: relative;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+
+  @include block_dark_blue;
+
+  @media (max-width: $xx) {
+    padding-bottom: 80%;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: $xs) {
+      bottom: 30px;
+      padding: 0 15px;
+    }
+  }
+}

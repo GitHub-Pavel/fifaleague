@@ -1,5 +1,3 @@
-@import "checkbox";
-
 .field {
   border: 1px solid var(--blue-green);
   border-radius: 7px;
@@ -7,4 +5,20 @@
   color: var(--white);
   line-height: 25px;
   padding: 0 6px;
+  width: 100%;
+  font-family: $PNFont;
+
+  &::placeholder {
+    color: var(--white);
+    opacity: .8;
+    @include text_letter_space;
+  }
 }
+
+@import "checkbox";
+@import "select";
+@import "placeholder";
+@import "input";
+@import "icon-picker";
+@import "icon-input";
+@import "multiselect";

@@ -7,9 +7,12 @@ import Accordion from './componetns/accordion';
 import comments from './utils/comments';
 import swipers from './utils/swipers';
 import windowUpdater from './utils/windowUpdater';
+import Tabs from './componetns/Tabs';
+import { BLAZY } from './configs/blazy';
+import fields from './utils/fields';
 
 window.onload = async function() {
-  const bLazy = new Blazy(); 
+  const bLazy = new Blazy(BLAZY); 
   const wow = new WOW({
     animateClass: 'animate__animated'
   });
@@ -19,16 +22,22 @@ window.onload = async function() {
       close: "Закрыть"
     }
   });
-
+  const tabs = new Tabs({
+    title: {
+      tab: "Выбрать"
+    }
+  });
   
   await svgLoader();
-  
-  wow.init();
-  accordion.init();
 
   comments();
   swipers();
+  fields();
   windowUpdater();
+
+  wow.init();
+  tabs.init();
+  accordion.init();
 
   $('body').removeClass('loading');
 };

@@ -1,0 +1,14 @@
+<div class="homepage-block">
+  <div class="homepage-block__head">
+    <h6 class="homepage-block__title"><%= locals.title %></h6>
+  </div>
+  <ul class="homepage-block__list">
+    <li class="homepage-block__item">
+      <%- include('/partials/cards/news-card'); %>
+    </li>
+    <li class="homepage-block__item">
+      <%- include('/partials/cards/news-card'); %>
+    </li>
+  </ul>
+  <%- include('more', {more: "Другие новости"}); %>
+</div>

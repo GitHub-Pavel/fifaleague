@@ -1,0 +1,9 @@
+.regulations {
+  .entry-wrap {
+    border-bottom: 1px solid var(--blue-semi-dark);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

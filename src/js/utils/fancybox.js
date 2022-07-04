@@ -1,6 +1,7 @@
 import './import-jquery';
 import '@fancyapps/fancybox';
 import Blazy from 'blazy';
+import { BLAZY } from '../configs/blazy';
 
 export default (function ($, window) {
   $(function () {
@@ -52,7 +53,7 @@ export default (function ($, window) {
 
           $('body').addClass(bodyOpenedClass);
 
-          setTimeout(() => new Blazy(), 100);
+          setTimeout(() => new Blazy(BLAZY), 100);
         },
         beforeClose: function() {
           if ($('.fancybox-slide--current .popup .popup-close').length && isClose) {

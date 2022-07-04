@@ -1,0 +1,146 @@
+<%
+const pageinfo = {
+  title: 'Settings',
+  meta: true,
+  authorized: true,
+  footer: {
+    background: "img/footer_bg.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <%- include('partials/section/dark-blue/head', {class: "fifaforms", modifier: "fifaforms--left"}); %> 
+      <h1 class="section__title h2">Настройки профиля</h1>
+      <form action="#" class="fifaforms__form">
+        <div class="fifaforms__row">
+          <%- include('/partials/field/input', {
+            placeholder: "Логин / Никнейм",
+            type: "text"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Электронная почта",
+            type: "email"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Телефон",
+            type: "tel"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Фамилия",
+            type: "text"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Имя",
+            type: "text"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Отчество",
+            type: "text"
+          }); %>
+          <%- include('/partials/field/date', {placeholder: "Дата рождения"}); %> 
+          <%- include('/partials/field/select', {
+            values: [
+              {name: "ps4", value: "PS4"},
+              {name: "xbox", value: "Xbox"},
+              {name: "pc", value: "PC"},
+            ],
+            placeholder: "Платформа"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "ID",
+            type: "text"
+          }); %>
+          <%- include('/partials/field/select', {
+            values: [
+              {name: "ru", value: "Россия"},
+              {name: "en", value: "Америка"},
+              {name: "by", value: "Беларусь"},
+            ],
+            placeholder: "Страна"
+          }); %>
+          <%- include('/partials/field/select', {
+            values: [
+              {name: "rnd", value: "Ростов-на-Дону"},
+              {name: "moscow", value: "Москва"},
+              {name: "piter", value: "Санк-Питербург"},
+            ],
+            placeholder: "Город"
+          }); %>
+        </div>
+        <div class="fifaforms__rside fifaforms__rside--multiple">
+          <%- include('/partials/field/icon-picker', {isTournament: false}); %> 
+          <%- include('/partials/btns/primary', {value: "Сохранить изминения"}); %>
+        </div>
+      </form>
+    <%- include('partials/section/dark-blue/foot'); %> 
+    
+    
+    
+    <%- include('partials/section/dark-blue/head', {class: "fifaforms", modifier: "fifaforms--left"}); %> 
+      <h1 class="section__title h2">Моя команда</h1>
+      <form action="#" class="fifaforms__form">
+        <div class="fifaforms__row">
+          <%- include('/partials/field/input', {
+            placeholder: "Название команды",
+            type: "text"
+          }); %>
+          <div class="fifaforms__submit">
+            <%- include('/partials/btns/primary', {value: "Создать команду"}); %>
+          </div>
+        </div>
+        <div class="fifaforms__rside fifaforms__rside--multiple">
+          <%- include('/partials/field/icon-picker', {isTournament: true}); %> 
+          <%- include('/partials/btns/primary', {value: "Сохранить изминения"}); %>
+        </div>
+      </form>
+    <%- include('partials/section/dark-blue/foot'); %> 
+    
+    
+    
+    <%- include('partials/section/dark-blue/head', {class: "fifaforms", modifier: "fifaforms--left"}); %> 
+      <h1 class="section__title h2">Моя команда</h1>
+      <form action="#" class="fifaforms__form">
+        <div class="fifaforms__row">
+          <%- include('/partials/field/input', {
+            placeholder: "Текущий пароль",
+            type: "password"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Новый пароль",
+            type: "password"
+          }); %>
+          <%- include('/partials/field/input', {
+            placeholder: "Повторить пароль",
+            type: "password"
+          }); %>
+          <a href="#" class="fifaforms__frgotpass">Забыли пароль?</a>
+        </div>
+        <div class="fifaforms__rside">
+          <%- include('/partials/btns/primary', {value: "Сохранить изминения"}); %>
+        </div>
+      </form>
+    <%- include('partials/section/dark-blue/foot'); %> 
+
+  <%- include('common/foot', pageinfo); %>
+</html>

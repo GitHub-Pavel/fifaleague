@@ -1,0 +1,38 @@
+.icon-input {
+  &__wrap {
+    position: relative;
+
+    .field {
+      line-height: 33px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 31px;
+    height: 100%;
+    color: var(--blue-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 18px;
+      width: 1px;
+      background: var(--blue-green);
+    }
+
+    svg {
+      fill: transparent;
+      stroke: currentColor;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<%
+const classes = {
+  main: classnames('input', {
+    "placeholder": locals.placeholder
+  }),
+  wrap: classnames('input__wrap', {
+    "placeholder-wrap": locals.placeholder
+  })
+}
+
+const title = locals.placeholder ? `title='${locals.placeholder}'` : "";
+const placeholder = locals.innerPlaceholder ? `placeholder='${locals.innerPlaceholder}'`: "";
+%>
+
+<label class="<%=classes.main%>" <%-title%>>
+  <%- include('placeholder', locals); %>
+  <div class="<%=classes.wrap%>">
+    <input type="<%=locals.type%>" class="field" <%-placeholder%>>
+  </div>
+</label>

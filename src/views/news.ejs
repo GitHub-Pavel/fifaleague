@@ -1,0 +1,75 @@
+<%
+const pageinfo = {
+  title: 'News',
+  meta: true,
+  authorized: false,
+  footer: {
+    background: "img/footer_bg-3.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="text-center">Новости</h2>
+        </div>
+
+        <div class="section__dark-blue-wrap">
+          <div class="tabs dark-blue-tabs">
+            <div class="tabs-head">
+              <button class="tabs-button">Лига</button>
+              <button class="tabs-button">FIFA</button>
+              <button class="tabs-button">Футбол</button>
+            </div>
+            <div class="tabs-body">
+              <% for(let i=0; i<3; i++) { %>
+                <div class="tabs-content">
+                  <ul class="article-ft-list articles-list articles-list--news">
+                    <% for(let i=0; i<6; i++) { %> 
+                      <li class="articles__item">
+                        <%- include('partials/cards/news-card'); %> 
+                      </li>
+                    <% } %> 
+                  </ul>
+                  <%- include('partials/block/more'); %>
+                </div>
+              <% } %> 
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    
+
+    <section class="section">
+      <div class="container">
+        <%- include('partials/banners/homebanner', {media: {full: "img/banner-5.jpg", small: "img/banner-5-xx.jpg"}}); %> 
+      </div>
+    </section>
+
+  <%- include('common/foot', pageinfo); %>
+</html>

@@ -1,6 +1,5 @@
 .checkbox {
   display: flex;
-  align-items: center;
   cursor: pointer;
 
   &__field:checked + &__box::after {
@@ -32,5 +31,6 @@
 
   &__title {
     @include text_letter_space();
+    flex: 1 1;
   }
 }

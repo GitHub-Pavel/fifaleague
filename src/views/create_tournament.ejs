@@ -1,0 +1,69 @@
+<%
+const pageinfo = {
+  title: 'Settings',
+  meta: true,
+  authorized: true,
+  footer: {
+    background: false
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+    
+    <%- include('partials/section/dark-blue/head', {class: "fifaforms", modifier: "fifaforms--left"}); %> 
+      <h1 class="section__title h2">Создание турнира</h1>
+      <form action="#" class="fifaforms__form">
+        <div class="fifaforms__row">
+          <%- include('/partials/field/input', {
+            placeholder: "Название турнира",
+            type: "text"
+          }); %>
+          <%- include('/partials/field/select', {
+            values: [
+              {name: "cup", value: "кубок"},
+              {name: "cup", value: "кубок"},
+              {name: "cup", value: "кубок"},
+            ],
+            placeholder: "Формат турнира"
+          }); %>
+          <%- include('/partials/field/date', {placeholder: "Начало турнира"}); %> 
+          <%- include('/partials/field/date', {placeholder: "Конец турнира"}); %> 
+          <%- include('/partials/field/select', {
+            values: [
+              {name: "ps4", value: "PS4"},
+              {name: "xbox", value: "Xbox"},
+              {name: "pc", value: "PC"},
+            ],
+            placeholder: "Платформа"
+          }); %>
+          <%- include('/partials/field/multiselect', {placeholder: "Пригласить игроков", name: "players"}); %> 
+        </div>
+        <div class="fifaforms__rside fifaforms__rside--multiple">
+          <%- include('/partials/field/icon-picker', {isTournament: true}); %> 
+          <%- include('/partials/btns/primary', {value: "Создать турнир"}); %>
+        </div>
+      </form>
+    <%- include('partials/section/dark-blue/foot'); %> 
+
+  <%- include('common/foot', pageinfo); %>
+</html>

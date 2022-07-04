@@ -1,0 +1,26 @@
+<%
+const classes = {
+  main: classnames('select', {
+    "placeholder": locals.placeholder
+  }),
+  wrap: classnames('select__wrap', {
+    "placeholder-wrap": locals.placeholder
+  })
+}
+
+const title = locals.placeholder ? `title='${locals.placeholder}'` : "";
+%>
+
+<label class="<%=classes.main%>" <%-title%>>
+  <%- include('placeholder', locals); %>
+  <div class="<%=classes.wrap%>">
+    <select name="#">
+      <% locals.values.forEach((element) => { %>
+        <option value="<%=element.name%>"><%=element.value%></option>
+      <% }); %>
+    </select>
+    <svg width="14" height="14">
+      <use href="#arrow_down"></use>
+    </svg>
+  </div>
+</label>

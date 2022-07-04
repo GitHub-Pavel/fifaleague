@@ -1,0 +1,36 @@
+.tabs {
+  &-button {
+    @include heading_h5;
+    @include text_uppercase;
+
+    @media (max-width: $xs) {
+      font-size: 14px;
+    }
+
+    &--active {
+      cursor: default;
+      font-weight: 600;
+    }
+  }
+
+  &-body {
+    position: relative;
+  }
+
+  &-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: .1s ease-in-out;
+    pointer-events: none;
+
+    &--active {
+      position: static;
+      opacity: 1;
+      pointer-events: all;
+      transition: .2s ease-in-out .1s;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+<%
+const pageinfo = {
+  title: 'Registration tournament',
+  meta: true,
+  authorized: true,
+  footer: {
+    background: "img/footer_bg.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <%- include('partials/section/dark-blue/head', {class: "fifaforms", modifier: "fifaforms--registration fifaforms--center"}); %> 
+      <h1 class="section__title section__title--has-desc h2">Регистрация результата</h1>
+      <div class="section__desc"><a href="#">Пожаловаться на турнир</a></div>
+      <form action="#" class="fifaforms__form fifaforms__form--registration">
+        <div class="fifaforms__img-wrap">
+          <img
+            width="70"
+            height="70"
+            data-src="img/tournament.svg"
+            src="<%- placeholder %>"
+            class="b-lazy fifaforms__img"
+          >
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Название турнира:</div>
+          <div class="placeholder-wrap">Название турнира</div>
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Формат турнира:</div>
+          <div class="placeholder-wrap">Кубок</div>
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Начало турнира:</div>
+          <div class="placeholder-wrap">19 Январь 2020 - 1 Март 2020</div>
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Конец турнира:</div>
+          <div class="placeholder-wrap">11 Январь 2020 - 18 Январь 2020</div>
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Платформа:</div>
+          <div class="placeholder-wrap">Платформа</div>
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Участников:</div>
+          <div class="placeholder-wrap">243</div>
+        </div>
+        <div class="fifaforms__inforow placeholder">
+          <div class="placeholder-text">Модератор:</div>
+          <div class="placeholder-wrap"><a href="#">Имя пользователя</a></div>
+        </div>
+
+        <%- include('/partials/field/select', {
+          values: [
+            {name: "0", value: "0"},
+            {name: "1", value: "1"},
+            {name: "2", value: "2"},
+          ],
+          placeholder: "Счет домашней команды"
+        }); %>
+        <%- include('/partials/field/select', {
+          values: [
+            {name: "0", value: "0"},
+            {name: "1", value: "1"},
+            {name: "2", value: "2"},
+          ],
+          placeholder: "Счет гостевой команды"
+        }); %>
+        <%- include('/partials/field/input', {
+          placeholder: "Отзыв о сопернике",
+          type: "text",
+          innerPlaceholder: "Начните вводить текст"
+        }); %>
+        <%- include('/partials/field/select', {
+          values: [
+            {name: "0", value: "0"},
+            {name: "1", value: "1"},
+            {name: "2", value: "2"},
+          ],
+          placeholder: "Качество соединения"
+        }); %>
+        <%- include('/partials/btns/primary', {value: "Зарегистрировать"}); %>
+      </form>
+    <%- include('partials/section/dark-blue/foot'); %> 
+
+  <%- include('common/foot', pageinfo); %>
+</html>

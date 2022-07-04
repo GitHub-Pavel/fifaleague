@@ -1,10 +1,12 @@
-<img
-  width="1439"
-  height="630"
-  data-src="img/footer_bg.jpg"
-  src="<%- placeholder %>"
-  class="b-lazy site-ft__bg"
->
+<%if (locals.footer.background) {%>
+  <img
+    width="1439"
+    height="630"
+    data-src="<%=locals.footer.background%>"
+    src="<%- placeholder %>"
+    class="b-lazy site-ft__bg"
+  >
+<% } %>
 
 <div class="container site-ft__container">
   <div class="site-ft__row">

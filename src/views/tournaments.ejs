@@ -1,0 +1,98 @@
+<%
+const pageinfo = {
+  title: 'Tournaments',
+  meta: true,
+  authorized: false,
+  footer: {
+    background: "img/footer_bg-1.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="text-center">Текущие турниры</h2>
+        </div>
+
+        <ul class="blue-dark-list">
+          <% for(let i=0; i<3; i++) { %> 
+            <li class="blue-dark-list__item">
+              <%- include('partials/cards/tournament-card', {
+                title: "Название турнира FIFA 2020",
+                info: [
+                  {name: "Участников:", value: "243"},
+                  {name: "Статус:", value: "В архиве"},
+                ],
+                table: [
+                  {name: "Формат:", value: "Кубок"},
+                  {name: "Сроки проведения:", value: "19 Январь 2020 - 1 Март 2020"},
+                  {name: "Срок регистрации:", value: "11 Январь 2020 - 18 Январь 2020"},
+                ]
+              }); %> 
+            </li>
+          <% } %> 
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <%- include('partials/banners/homebanner', {media: {full: "img/banner-3.jpg", small: "img/banner-3.jpg"}}); %> 
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="text-center">Ближайшие турниры</h2>
+        </div>
+
+        <ul class="blue-dark-list">
+          <% for(let i=0; i<4; i++) { %> 
+            <li class="blue-dark-list__item">
+              <%- include('partials/cards/tournament-card', {
+                title: "Название турнира FIFA 2020",
+                info: [
+                  {name: "Участников:", value: "243"},
+                  {name: "Статус:", value: "В архиве"},
+                ],
+                table: [
+                  {name: "Формат:", value: "Кубок"},
+                  {name: "Сроки проведения:", value: "19 Январь 2020 - 1 Март 2020"},
+                  {name: "Срок регистрации:", value: "11 Январь 2020 - 18 Январь 2020"},
+                ]
+              }); %> 
+            </li>
+          <% } %> 
+        </ul>
+      </div>
+    </section>
+
+    <%- include('partials/section/dark-blue/head'); %>
+      <%- include('partials/elements/pagination'); %>
+    <%- include('partials/section/dark-blue/foot'); %>
+
+  <%- include('common/foot', pageinfo); %>
+</html>

@@ -1,0 +1,99 @@
+.select {
+  cursor: pointer;
+
+  &__wrap {
+    position: relative;
+  }
+
+  .choices {
+    margin: 0;
+  }
+
+  .choices[data-type*=select-one] .choices__inner {
+    padding: 0;
+    min-height: auto;
+    background: transparent;
+    border: 1px solid var(--blue-green);
+    border-radius: 7px;
+  }
+
+  .choices__list--single {
+    padding: 5px 60px 5px 30px; 
+
+    @media (max-width: $sm) {
+      padding: 5px 45px 5px 15px;
+    }
+  }
+
+  .choices__list--single .choices__item {
+    text-align: center;
+    @include text_big;
+    @include text_letter_space;
+  }
+
+  .choices[data-type*=select-one]:after {
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    right: 30px;
+    width: 1px;
+    background-color: var(--blue-green);
+    border:none;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  svg {
+    fill: transparent;
+    stroke: var(--blue-green);
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    transform: translateY(-50%);
+    transition: transform .2s;
+    transform-origin: center;
+  }
+
+  .choices.is-open + svg {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+
+  .choices__list--dropdown, .choices__list[aria-expanded] {
+    color: var(--white);
+    border: 1px solid var(--blue-green);
+    background: var(--dark-blue);
+    border-radius: 5px;
+    top: calc(100% + 10px);
+  }
+
+  .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item {
+    padding-right: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background: var(--blue);
+  }
+}
+
+.select--multiple {
+  .select__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+
+    .choices__list--single {
+      padding-left: 0;
+      padding-right: 30px;
+    }
+    
+    .choices__list--single .choices__item {
+      @include text_normal;
+      line-height: 23px;
+    }
+  }
+}

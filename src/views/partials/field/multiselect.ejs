@@ -1,0 +1,19 @@
+<%
+const classes = {
+  main: classnames('multiselect', {
+    "placeholder": locals.placeholder
+  }),
+  wrap: classnames('multiselect__wrap', {
+    "placeholder-wrap": locals.placeholder
+  })
+}
+
+const title = locals.placeholder ? `title=${locals.placeholder}` : "";
+%>
+
+<div class="<%=classes.main%>" <%=title%> data-name="<%=locals.name%>">
+  <%- include('placeholder', locals); %>
+  <div class="<%=classes.wrap%>">
+    <%- include('/partials/field/icon-input', {type: "text", icon: "plus", placeholder: false, inputPlaceholder: "Начните вводить никнейм"}); %> 
+  </div>
+</div>

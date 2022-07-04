@@ -1,0 +1,18 @@
+<%
+const localsIsString = typeof locals.class === 'string';
+const modifierIsString = typeof locals.modifier === 'string';
+
+const classes = {
+  main: classnames('section', {
+    [locals.class]: localsIsString,
+    [locals.modifier]: modifierIsString
+  }),
+  wrap: classnames('section__dark-blue-wrap', {
+    [locals.class+"__wrap"]: localsIsString
+  })
+};
+%>
+
+<section class="<%=classes.main%>">
+  <div class="container">
+    <div class="<%=classes.wrap%>">

@@ -1,0 +1,13 @@
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--blue-semi-dark);
+
+  &__link {
+    @include link_blue;
+    @include text_big;
+    @include text_letter_space;
+  }
+}

@@ -9,13 +9,12 @@ export default class CustomElements {
 
   elements = [];
 
-
   /**
    * Initializing standard options
    * 
    * @param {String} classname deafult classname
    */
-  constructor(options) {
+  constructor(options = {}) {
     this.options = {...this.options, ...options};
     this.initElements();
   }
@@ -112,7 +111,7 @@ export default class CustomElements {
    * Сonverted to an object of the class
    * 
    * @param {DOMElement} element the DOM element to be converted to an object of the class
-   * @returns {Object}
+   * @returns {Object} custom object will use as element of main array
    */
   getCurrentObject(element) {
     const id = uuidv4();

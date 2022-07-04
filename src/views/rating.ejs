@@ -1,0 +1,114 @@
+<%
+const pageinfo = {
+  title: 'Rating',
+  meta: true,
+  authorized: false,
+  footer: {
+    background: "img/footer_bg-5.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+
+    <%- include('partials/section/dark-blue/head'); %>
+      <table class="statistictable">
+        <tbody>
+          <tr>
+            <th>#</th>
+            <th></th>
+            <th>Команда</th>
+            <th>Город</th>
+            <th>Рейтинг</th>
+            <th>Игры</th>
+            <th>В</th>
+            <th>Н</th>
+            <th>П</th>
+            <th>ГЗ</th>
+            <th>ГП</th>
+            <th>РМ</th>
+            <th>О</th>
+          </tr>
+          <% for(let i=0; i<10; i++) { %>
+            <tr>
+              <td><%=i+1%></td>
+              <td>
+                <img
+                  width="40"
+                  height="40"
+                  data-src="img/user.svg"
+                  src="<%- placeholder %>"
+                  class="b-lazy"
+                  title="Username"
+                >
+              </td>
+              <td>
+                <div class="text text-big">Название команды</div>
+                <div class="text">( Капитан команды )</div>
+              </td>
+              <td>
+                <div class="text text-big">Ростов-на-Дону</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>Рейтинг:</span> 95</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>Игры:</span> 74</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>В:</span> 64</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>Н:</span> 5</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>П:</span> 5</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>ГЗ:</span> 269</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>ГП:</span> 269</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>РМ:</span> 269</div>
+              </td>
+              <td>
+                <div class="text text-big"><span>О:</span> 269</div>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <%- include('/partials/elements/pagination'); %>
+    <%- include('partials/section/dark-blue/foot'); %>
+
+    
+
+    <section class="section">
+      <div class="container">
+        <%- include('partials/banners/homebanner', {media: {full: "img/banner-6.jpg", small: "img/banner-6.jpg"}}); %> 
+      </div>
+    </section>
+
+  <%- include('common/foot', pageinfo); %>
+</html>

@@ -14,13 +14,34 @@
     flex-direction: column;
   }
 
+  &__points {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: $sm) {
+      padding: 20px 0;
+    }
+  }
+
+  &__tournament-img {
+    img {
+      border-radius: 50%;
+      display: block;
+    }
+  }
+
   &__team {
     display: grid;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 
     @media (max-width: $sm) {
       gap: 10px;
+    }
+
+    @media (max-width: $xx) {
+      gap: 0;
     }
 
     &--left {
@@ -68,6 +89,10 @@
     &-leader,
     &-name {
       @include text_letter_space;
+
+      @media (min-width: $xs) {
+        white-space: nowrap;
+      }
     }
   }
 

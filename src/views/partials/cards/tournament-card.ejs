@@ -1,0 +1,38 @@
+<%
+const isTable = typeof locals.table === 'object';
+
+const classes = {
+  main: classnames('tournament-card', {
+    "tournament-card--has-table": isTable
+  }),
+}
+%>
+
+<div class="<%=classes.main%>">
+  <a href="#" title="Tournament name" class="tournament-card__img-wrap">
+    <img
+      width="50"
+      height="50"
+      data-src="img/tournament.svg"
+      src="<%- placeholder %>"
+      class="b-lazy tournament-card__img"
+      alt="<%=locals.title%>"
+    >
+  </a>
+  <a href="#" title="Tournament name" class="tournament-card__title"><%=locals.title%></a>
+  <div class="tournament-card__content">
+    <% if(isTable) { %>
+      <%- include('/partials/tables/classic', {table: locals.table}); %>
+    <% } else { %>
+      <div class="tournament-card__leagua">Лига</div>
+    <% } %>
+  </div>
+  <div class="tournament-card__info">
+    <% if(typeof locals.info === 'object') { %> 
+      <%- include('/partials/tables/classic', {table: locals.info}); %>
+    <% } %>
+  </div>
+  <div class="tournament-card__btn">
+    <%- include('/partials/btns/primary', {value: "Подробнее"}); %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.homeblockbanner {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-bottom: 30%;
+  height: 100%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+
+  @include block_dark_blue;
+
+  @media (max-width: $xx) {
+    padding-bottom: 86%;
+  }
+
+  .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+  }
+}

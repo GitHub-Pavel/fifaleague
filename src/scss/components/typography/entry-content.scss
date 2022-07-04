@@ -1,0 +1,56 @@
+.entry-content {
+  p {
+    @include text_letter_space;
+    margin-bottom: 20px;
+
+    @media (max-width: $sm) {
+      margin-bottom: 10px;
+    }
+  }
+
+  a {
+    @include link_blue;
+  }
+
+  h6 {
+    margin-bottom: 30px;
+
+    @media (max-width: $sm) {
+      margin-bottom: 15px;
+    }
+  }
+
+  ol {
+    counter-reset: myCounter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 20px;
+
+      @media (max-width: $sm) {
+        margin-bottom: 10px;
+      }
+
+      &::before {
+        counter-increment: myCounter;
+        content: counter(myCounter)".";
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      p {
+        display: inline;
+      }
+    }
+  }
+}
+
+.entry-wrap {
+  padding: 50px 30px;
+
+  @media (max-width: $sm) {
+    padding: 15px;
+  }
+}

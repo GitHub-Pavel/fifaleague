@@ -1,5 +1,6 @@
 import { ENDPOINTS } from '../configs/endpoints';
 import Blazy from 'blazy';
+import { BLAZY } from '../configs/blazy';
 
 export default function windowUpdater(result = {}) {
   const comparatorState= (() => {
@@ -40,9 +41,9 @@ export default function windowUpdater(result = {}) {
 }
 
 function smUpdater(result) {
-  new Blazy();
+  new Blazy(BLAZY);
 }
 
 function mdUpdater(result) {
-  new Blazy();
+  new Blazy(BLAZY);
 }

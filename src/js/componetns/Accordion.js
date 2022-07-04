@@ -2,10 +2,14 @@ import CustomElements from './CustomElements';
 import { v4 as uuidv4 } from 'uuid';
 import { toggle } from 'slidetoggle';
 import Blazy from 'blazy';
+import EventEmitter from 'events';
+import { BLAZY } from '../configs/blazy';
 
 export default class Accordion extends CustomElements {
+  events;
+
   constructor(options = {}) {
-    super({
+    const accordionOptions = {
       duration: 300,
       easing: "ease-in-out",
       delay: 0,
@@ -28,7 +32,11 @@ export default class Accordion extends CustomElements {
         close: "Close",
         ...options.title ? options.title : {}
       },
-    });
+    };
+    
+    super(accordionOptions);
+    this.events = new EventEmitter();
+    window.accordion = {events: {on: this.events.on, off: this.events.off}};
   }
 
   init() {
@@ -116,16 +124,9 @@ export default class Accordion extends CustomElements {
   onAnimationEnd(el) {
     const currentElement = this.getElementById(el.id);
 
-    const onClose = new CustomEvent('accordion/close', {
-      bubbles: true,
-      detail: {
-        target: currentElement
-      }
-    });
-
     if (!currentElement.isOpen)
-      return window.dispatchEvent(onClose);
+      return this.events.emit('close', currentElement);
 
-    new Blazy();
+    new Blazy(BLAZY);
   }
 };

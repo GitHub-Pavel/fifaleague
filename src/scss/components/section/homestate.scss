@@ -1,0 +1,38 @@
+.homestate {
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px 0;
+    @include block_border_blue_green;
+
+    @media (max-width: $sm) {
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px 0;
+    }
+  }
+
+  &__title {
+    color: var(--blue-green);
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+
+    @media (max-width: $sm) {
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
+  &__desc {
+    @include text_big;
+    width: 150px;
+
+    @media (max-width: $sm) {
+      text-align: center;
+    }
+  }
+  
+}

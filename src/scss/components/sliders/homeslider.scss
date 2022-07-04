@@ -1,0 +1,38 @@
+.homeslider {
+  @include block_dark_blue;
+
+  &__item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 30%;
+
+    @media (max-width: $sm) {
+      padding-bottom: 50%;
+    }
+
+    @media (max-width: $xx) {
+      padding-bottom: 80%;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    color: var(--white);
+    @include heading_h3;
+    padding: 0 15px;
+  }
+}

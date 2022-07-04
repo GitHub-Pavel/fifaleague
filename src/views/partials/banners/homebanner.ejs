@@ -1,0 +1,18 @@
+<%
+const banner = {
+  media: {
+    full: locals?.media?.full ? locals.media.full : "img/banner-1.jpg",
+    small: locals?.media?.small ? locals.media.small : "img/banner-1-xx.jpg"
+  }
+}
+%>
+
+<a 
+  href="#" 
+  class="banner homebanner b-lazy" 
+  title="Подробнее" 
+  data-src="<%=banner.media.full%>" 
+  data-src-xx="<%=banner.media.small%>"
+>
+  <%- include('/partials/btns/primary', {value: "Подробнее", notBtn: true}); %> 
+</a>

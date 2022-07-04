@@ -3,8 +3,11 @@ p {
 } 
  
 .text {
-  &-small {
-    font-size: 14px;
+  @include text_letter_space;
+  @include text_normal;
+
+  &-big {
+    @include text_big;
   }
 
   &-bold {

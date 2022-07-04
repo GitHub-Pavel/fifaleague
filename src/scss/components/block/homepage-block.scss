@@ -1,0 +1,26 @@
+.homepage-block {
+  @include block_dark_blue;
+
+
+  &__title {
+    text-align: center;
+    @include text_uppercase;
+  }
+
+  &__head {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--blue-semi-dark);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 30px;
+    display: grid;
+    gap: 50px;
+
+    @media (max-width: $xs) {
+      gap: 30px;
+    }
+  }
+}

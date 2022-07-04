@@ -1,11 +1,72 @@
 .section {
   padding-bottom: 50px;
 
+  @media (max-width: $sm) {
+    padding-bottom: 30px;
+  }
+
   &__dark-blue-wrap {
     @include block_dark_blue;
+  }
+
+  &__title {
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 50px;
+
+    @media (max-width: $sm) {
+      padding-bottom: 25px;
+      padding-top: 20px;
+    }
+
+    &--has-desc {
+      padding-bottom: 0;
+
+      @media (max-width: $sm) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__desc {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    @include text_letter_space;
+
+    @media (max-width: $sm) {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    a {
+      @include link_blue;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
+
+    @media (max-width: $sm) {
+      margin-bottom: 30px;
+    }
+
+    .select {
+      min-width: 300px;
+    }
   }
 }
 
 @import "profileinfo";
 @import "lastgames";
 @import "teamdata";
+@import "homepage-current-tournaments";
+@import "homepage-blocks";
+@import "homestate";
+@import "article";
+@import "regulations";
+@import "fifaforms";

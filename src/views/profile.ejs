@@ -1,0 +1,272 @@
+<%
+const pageinfo = {
+  title: 'Profile',
+  meta: true,
+  authorized: true,
+  footer: {
+    background: "img/footer_bg.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  },
+  state: {
+    trophies: ["Награды", "Трофеи", "Участие в турнирах"],
+    tables: {
+      profile: {
+        info: [
+          {name: "Платформа", value: "PS4"},
+          {name: "Имя",       value: "Sergey Larin"},
+          {name: "PSN",       value: "PSN"},
+          {name: "Телефон",   value: "89897261885"},
+          {name: "Страна",    value: "Россия"},
+          {name: "Город",     value: "Ростов - на - Дону"},
+          {name: "Возраст",   value: "33"},
+        ],
+        dates: [
+          {name: "Дата регистрации",    value: "15. 01. 2020"},
+          {name: "Последнее посещение", value: "15. 01. 2020"},
+        ]
+      },
+      teamdata: {
+        info: [
+          [
+            {name: "Всего забито голов:",    value: "6285 (в среднем 3,03 за игру)"},
+            {name: "Всего пропущено голов:", value: "4319 (в среднем 2,08 за игру)"}
+          ],
+          [
+            {name: "Победная серия:",        value: "63 игры"},
+            {name: "Безвыиграшная серия:",   value: "7 игр"},
+            {name: "Проигрышная серия:",     value: "7 игр"},
+          ],
+          [
+            {name: "Не пропустил в:",        value: "372 играх (18% игр)"},
+            {name: "Не забил в:",            value: "207 играх (10% игр)"},
+          ],
+          [
+            {name: "Безпроигрышная серия:",  value: "63 игр"},
+            {name: "Ничейная серия:",        value: "3 игры"},
+            {name: "Безничейная серия:",     value: "458 игр"},
+          ],
+        ],
+        statistics: [
+          {
+            name: "Абсолютные значения:",
+            table: [
+              {name: "Дома",     value: ["494","33","225","752"]},
+              {name: "В гостях", value: ["743","53","524","1320"]},
+              {name: "Всего",    value: ["1237","86","749","2072"]},
+            ],
+          },
+          {
+            name: "Относительные значения:",
+            table: [
+              {name: "Дома",     value: ["49%","33%","22%","75%"]},
+              {name: "В гостях", value: ["74%","53%","52%","13%"]},
+              {name: "Всего",    value: ["12%","86%","74%","100%"]},
+            ],
+          },
+          {
+            name: "Игры дома / на выезде:",
+            table: [
+              {name: "Дома",     value: ["49%","33%","22%"]},
+              {name: "В гостях", value: ["74%","53%","52%"]},
+            ],
+          },
+          {
+            name: "Товарищеские / турнирныы игры:",
+            table: [
+              {name: "Дома",     value: ["49%","33%","22%"]},
+              {name: "В гостях", value: ["74%","53%","52%"]},
+            ],
+          }
+        ]
+      }
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+  
+    <%- include('partials/section/dark-blue/head', {class: 'profileinfo'}); %>
+      <div class="profileinfo-user">
+        <div class="profileinfo-user__img-wrap">
+          <img
+            width="200"
+            height="200"
+            data-src="img/pages/profile/user.jpg"
+            src="<%- placeholder %>"
+            class="b-lazy profileinfo-user__img"
+            alt="<%= pageinfo.authorizedInfo.user.name %>"
+            title="<%= pageinfo.authorizedInfo.user.name %>"
+          >
+        </div>
+        <div class="profileinfo-user__btns">
+          <%- include('/partials/block/btnblock', {value: "Сообщения", count: "3"}); %>
+          <%- include('/partials/block/btnblock', {value: "Мои турниры", count: "1"}); %>
+        </div>
+      </div>
+      <div class="profileinfo-infoblock">
+        <form class="profileinfo-infoblock-user">
+          <h4 class="profileinfo-infoblock-user__name">Сергей</h4>
+          <div class="profileinfo-infoblock-user__team">Команда</div>
+          <div class="profileinfo-infoblock-user__rating">Рейтинг</div>
+          <div class="profileinfo-infoblock-user__is-ready">
+            <%- 
+            include('/partials/field/checkbox', {
+              value: "ready",
+              title: "Готов играть",
+              name: "is_ready",
+              text: {
+                value: "Готов играть"
+              }
+            }); 
+            %>
+          </div>
+          <div class="profileinfo-infoblock-user__btn">
+            <%- include('/partials/btns/primary', {value: "Создать турнир"}); %> 
+          </div>
+        </form>
+        <div class="profileinfo-infoblock__tables">
+          <div class="profileinfo-infoblock__table-info">
+            <%- include('/partials/tables/classic', {table: pageinfo.state.tables.profile.info}); %>
+          </div>
+          <div class="profileinfo-infoblock__table-dates">
+            <%- include('/partials/tables/classic', {table: pageinfo.state.tables.profile.dates}); %>
+          </div>
+          <div class="profileinfo-infoblock__table-rating">
+            <table>
+              <tbody>
+                <tr>
+                  <th>Провайдер</th>
+                  <td>Ростелеком</td>
+                </tr>
+                <tr>
+                  <th>Качество связи</th>
+                  <td><%- include('/partials/elements/rating', {rating: 3}); %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="profileinfo-infoblock__desc">После со свободным текстом пользователя После со свободным текстом пользователя После со свободным текстом пользователя После со свободным текстом пользователя После со свободным текстом пользователя После со свободным текстом пользователя</div>
+      </div>
+    <%- include('partials/section/dark-blue/foot'); %>
+
+    <%- include('partials/section/dark-blue/head'); %>
+      <ul class="trophies-list">
+        <% 
+        for (let i = 0; i < pageinfo.state.trophies.length; i++) {
+          const item = pageinfo.state.trophies[i];
+        %>  
+          <li class="trophies-list__item accordion">
+            <button class="trophies-list__head accordion__head">
+              <h5 class="accordion__title"><%=item%></h5>
+              <svg width="18" height="18" class="accordion__icon">
+                <use href="#arrow_down"></use>
+              </svg>
+            </button>
+            <div class="accordion__body">
+              <div class="trophies-list__row">
+                <% for (let i=0; i<6; i++) { %>
+                  <%- include('/partials/cards/trophies-card', {img: i<2}); %>
+                <% } %> 
+              </div>
+              <div class="swiper trophies-swiper">
+                <div class="swiper-wrapper">
+                  <% for (let i=0; i<6; i++) { %>
+                    <div class="swiper-slide">
+                      <%- include('/partials/cards/trophies-card', {img: i<2, slider: true}); %>
+                    </div>
+                  <% } %> 
+                </div>
+              </div>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    <%- include('partials/section/dark-blue/foot'); %>
+
+
+    <%- include('/partials/section/section-accordion/head', {
+      class: "lastgames",
+      title: {
+        value: "Последние игры команды"
+      }
+    }); %> 
+      <div class="lastgames__row">
+        <% for (let i=0; i<7; i++) { %>
+          <%- include('/partials/cards/game-card'); %>
+        <% } %>
+      </div>  
+    <%- include('/partials/section/section-accordion/foot'); %>
+
+
+    <%- include('/partials/section/section-accordion/head', {
+      class: "teamdata",
+      title: {
+        value: "Статистика команды"
+      }
+    }); %>  
+      <div class="teamdata__box">
+        <div class="teamdata__datas">
+          <% 
+          for (let i = 0; i < pageinfo.state.tables.teamdata.statistics.length; i++) {
+            const table = pageinfo.state.tables.teamdata.statistics[i];
+          %>
+            <%- include('/partials/tables/statistic', {table}); %>
+          <% } %>
+        </div>
+        <div class="teamdata__tables">
+          <% 
+          for (let i = 0; i < pageinfo.state.tables.teamdata.info.length; i++) {
+            const table = pageinfo.state.tables.teamdata.info[i];
+          %>
+            <%- include('/partials/tables/classic', {table}); %>
+          <% } %>
+        </div>  
+      </div>  
+    <%- include('/partials/section/section-accordion/foot'); %>
+
+    <%- include('/partials/section/section-accordion/head', {
+      class: "clangames",
+      title: {
+        value: "Клановые игры"
+      }
+    }); %>
+    <%- include('/partials/section/section-accordion/foot'); %>
+    
+    <%- include('/partials/section/section-accordion/head', {
+      title: {
+        value: "График изменения рейтинга"
+      }
+    }); %>
+    <%- include('/partials/section/section-accordion/foot'); %>
+    
+    <%- include('/partials/section/section-accordion/head', {
+      class: "reviewsection",
+      title: {
+        value: "Отзывы"
+      }
+    }); %>
+      <%- include('/partials/block/review'); %>
+    <%- include('/partials/section/section-accordion/foot'); %>
+  
+  <%- include('common/foot', pageinfo); %>
+</html>

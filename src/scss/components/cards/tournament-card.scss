@@ -1,0 +1,178 @@
+.tournament-card {
+  display: grid;
+  grid-template-columns: 50px max-content 2fr 1fr 150px;
+  padding: 10px 30px;
+  gap: 30px;
+  align-items: center;
+
+  @media (max-width: $md) {
+    grid-template-columns: 50px 1fr 3fr 3fr;
+    columns: 20px;
+    row-gap: 10px;
+  }
+
+  @media (max-width: $xs) {
+    padding: 15px 5px;
+    gap: 10px;
+    grid-template-columns: 45px 1fr 2fr 100px;
+    grid-template-areas: 
+      "img title title btn"
+      "img content info btn"
+    ;
+  }
+
+  @media (max-width: $less) {
+    grid-template-columns: 45px 1fr 2fr;
+    grid-template-areas: 
+      "img title title"
+      "content content info"
+      "btn btn btn"
+    ;
+  }
+
+  &--has-table {
+    align-items: flex-start;
+    grid-template-columns: 70px max-content 2fr 1fr 150px;
+
+    @media (max-width: $lg ) {
+      grid-template-columns: 45px max-content 1.6fr 1fr 150px;
+    }
+
+    @media (max-width: $xs) {
+      grid-template-columns: 45px 1fr;
+      grid-template-areas:
+        "img title"
+        "content content"
+        "info info"
+        "btn btn"
+      ;
+    }
+
+    @media (max-width: $less) {
+      grid-template-columns: 45px 1fr;
+      grid-template-areas:
+        "img title"
+        "content content"
+        "info info"
+        "btn btn"
+      ;
+    }
+    
+    .tournament-card__title {
+      margin-top: 5px;
+
+      @media (max-width: $xs) {
+        grid-area: title;
+      }
+    }
+
+    .tournament-card__img {
+      width: 70px;
+
+      &-wrap {
+        @media (max-width: $xs) {
+          grid-area: img;
+        }
+      }
+    }
+
+    .tournament-card__content {
+      padding-left: 30px;
+
+      @media (max-width: $lg ) {
+        padding-left: 0;
+      }
+
+      @media (max-width: $md ) {
+        grid-column: 1/4;
+      }
+
+      @media (max-width: $xs) {
+        grid-area: content;
+      }
+    }
+
+    .tournament-card__info {
+      padding-left: 30px;
+
+      @media (max-width: $lg ) {
+        padding-left: 0;
+      }
+
+      @media (max-width: $lg ) {
+        grid-column: 4/5;
+      }
+
+      @media (max-width: $xs) {
+        grid-area: info;
+      }
+    }
+  }
+
+  &__img-wrap {
+    @media (max-width: $xs) {
+      grid-area: img;
+    }
+  }
+
+  &__btn {
+    @media (max-width: $xs) {
+      grid-area: btn;
+
+      .btn {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__info {
+    @media (max-width: $md) {
+      grid-column: 3/5;
+    }
+
+    @media (max-width: $xs) {
+      grid-area: info;
+      grid-column: auto;
+    }
+
+    th {
+      width: 80px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    
+    @media (max-width: $md) {
+      grid-column: 1/3;
+      justify-content: flex-start;
+    }
+
+    @media (max-width: $xs) {
+      grid-area: content;
+      grid-column: auto;
+    }
+  }
+
+  &__leagua {
+    @include text_big;
+    @include text_letter_space;
+  }
+
+  &__title {
+    @include text_big;
+    @include text_letter_space;
+    @include link_reverse;
+
+    @media (max-width: $md) {
+      grid-column: 2/5;
+    }
+
+    @media (max-width: $xs) {
+      grid-area: title;
+    }
+  }
+}

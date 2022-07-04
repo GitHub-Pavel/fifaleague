@@ -20,6 +20,12 @@
   }
 
   &-user {
+    &--tournament {
+      .profileinfo-user__img {
+        margin-bottom: 0;
+      }
+    }
+
     &__img {
       border-radius: 50%;
       overflow: hidden;
@@ -42,6 +48,28 @@
   }
 
   &-infoblock {
+    text-align: right;
+
+    @media (max-width: $sm) {
+      text-align: center;
+    }
+
+    &__link {
+      @include link_blue;
+      @include text_big;
+      @include text_letter_space;
+      display: inline-block;
+      margin-right: 85px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+
+      @media (max-width: $sm) {
+        margin-right: 0;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+    }
+
     &-user {
       @include block_border_blue_green;
 
@@ -49,11 +77,34 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      text-align: left;
+
+      .btn {
+        @media (max-width: $less) {
+          padding: 0 5px;
+          width: 100%;
+        }
+      }
 
       &__team,
       &__rating {
         @include text_letter_space;
         @include text_big;
+      }
+
+      &__link {
+        @include text_letter_space;
+        @include text_big;
+        @include link_blue;
+        padding: 0 10px;
+        text-align: center;
+        white-space: nowrap;
+        grid-column: 1/4;
+
+        @media (max-width: $less) {
+          grid-column: 1/2;
+          grid-area: link;
+        }
       }
 
       @media (max-width: $less) {
@@ -66,6 +117,14 @@
           "btn"
         ;
         gap: 10px;
+
+        &--tournament {
+          grid-template-areas:
+            "name"
+            "link"
+            "btn"
+          ;
+        }
 
         &__team {
           text-align: center;
@@ -121,22 +180,27 @@
 
     &__desc {
       padding: 25px 30px 0;
+      border-top: 1px solid var(--blue-semi-dark);
+      margin-top: 25px;
+      text-align: left;
 
       @include text_letter_space();
       @include text_big();
 
       @media (max-width: $md) {
         padding: 15px 25px 0;
+        margin-top: 15px;
       }
     }
 
     &__table {
       &s {
         padding: 25px 30px;
-        border-bottom: 1px solid var(--blue-semi-dark);
+        padding-bottom: 0;
         display: grid;
         grid-template-columns: 1fr 1.6fr;
         column-gap: 100px;
+        text-align: left;
         grid-template-areas:
           "info dates"
           "info rating"
@@ -151,6 +215,39 @@
             "dates"
             "rating"
           ;
+        }
+
+        &--tournament {
+          @media (max-width: $md) {
+            grid-template-areas:
+              "info"
+              "dates"
+            ;
+          }
+
+          @media (max-width: $xx) {
+            gap: 0;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: -10px;
+            margin-right: -10px;
+
+            .profileinfo-infoblock__table-info {
+              margin-bottom: 25px;
+              padding-bottom: 25px;
+              border-bottom: 1px solid var(--blue-semi-dark);
+            }
+
+            .profileinfo-infoblock__table-info, 
+            .profileinfo-infoblock__table-dates {
+              padding-left: 25px;
+              padding-right: 25px;
+            }
+
+            th {
+              width: 110px;
+            }
+          }
         }
       }
 

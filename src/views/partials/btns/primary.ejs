@@ -1,3 +1,4 @@
+<% if (!locals.notBtn) { %> 
 <a 
   href="#" 
   class="btn btn-primary"
@@ -5,3 +6,10 @@
 >
   <%= locals.value %>
 </a>
+<% } else { %> 
+<span 
+  class="btn btn-primary"
+>
+  <%= locals.value %>
+</span>
+<% } %>

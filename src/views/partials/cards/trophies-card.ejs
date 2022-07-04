@@ -1,14 +1,14 @@
 <% 
 const lazyLoadingClass = !locals.slider ? "b-lazy" : "swiper-lazy";
+const classes = {
+  main: classnames('trophies-card__img-wrap', {
+    "trophies-card__img-wrap--no-img": !locals.img
+  })
+}
 %> 
 
 <div class="trophies-card">
-  <div class="
-    trophies-card__img-wrap
-    <% if (!locals.img) { %>
-      trophies-card__img-wrap--no-img
-    <% } %>  
-  ">
+  <div class="<%=classes.main%>">
     <% if (locals.img) { %>
       <img
         width="70"
@@ -16,6 +16,7 @@ const lazyLoadingClass = !locals.slider ? "b-lazy" : "swiper-lazy";
         data-src="img/trophies-card.jpg"
         src="<%- placeholder %>"
         class="<%=lazyLoadingClass%> trophies-card__img"
+        alt="Самый результативный игрок чемпионата FIFA 20"
       >
       <% if(locals.slider) { %>
         <div class="swiper-lazy-preloader"></div>

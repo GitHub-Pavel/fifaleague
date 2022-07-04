@@ -1,0 +1,190 @@
+.fifaforms {
+  &-result {
+    border-bottom: 1px solid var(--blue-semi-dark);
+    margin-bottom: 30px;
+
+    @media (max-width: $sm) {
+      margin-bottom: 25px;
+    }
+
+    &__points {
+      align-items: center;
+      flex-direction: row;
+      gap: 10px;
+
+      @media (max-width: $sm) {
+        gap: 5px;
+      }
+    }
+  }
+
+  &--registration {
+    .btn {
+      margin-top: 50px;
+
+      @media (max-width: $sm) {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  &--end {
+    .fifaforms__form {
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      @media (max-width: $sm) {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &--center {
+    .fifaforms__form {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &--left {
+    .fifaforms__form {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @media (max-width: $sm) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+    }
+  }
+
+  .placeholder-text {
+    width: 130px;
+
+    @media (max-width: $sm) {
+      width: 100%;
+    }
+  }
+
+  &__row,
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (max-width: $sm) {
+      gap: 20px;
+      width: 100%;
+    }
+  }
+
+  &__form {
+    padding: 0 40px;
+    padding-bottom: 50px;
+
+    @media (max-width: $sm) {
+      padding-bottom: 30px;
+    }
+
+    &--registration {
+      .placeholder-text {
+        width: 160px;
+
+        @media (max-width: $sm) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .placeholder-wrap,
+  .select__row {
+    width: 250px;
+
+    @media (max-width: $sm) {
+      width: 100%;
+    }
+  }
+
+  .select__row .placeholder-wrap {
+    width: 30%;
+  }
+
+  .checkbox {
+    max-width: 390px;
+    margin-top: 5px;
+  }
+
+  &__inforow {
+    @media (max-width: $sm) {
+      flex-direction: row;
+    }
+
+    .placeholder-text {
+      @include text_normal;
+      padding: 10px 0;
+
+      @media (max-width: $sm) {
+        width: 140px;
+      }
+    }
+
+    .placeholder-wrap {
+      @include text_big;
+      @include text_letter_space;
+      padding: 8px 0;
+    }
+  }
+
+  &__img {
+    border-radius: 50%;
+
+    &-wrap {
+      margin-bottom: 10px;
+
+      @media (max-width: $sm) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__rside {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+
+    &--multiple {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+
+      @media (max-width: $sm) {
+        align-items: center;
+      }
+    }
+  }
+
+  &__submit {
+    margin-top: 20px;
+
+    @media (max-width: $sm) {
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+
+  &__frgotpass {
+    margin-top: 30px;
+    @include text_letter_space;
+
+    @media (max-width: $sm) {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<%
+const iconBlank = locals.isTournament ? 'img/tournament.svg' : 'img/user.svg';
+const inputName = locals.isTournament ? 'tournament_icon' : 'user_icon';
+const blockText = locals.isTournament ? 'Аватар команды' : 'Аватар профиля';
+%> 
+
+<label class="icon-picker banner">
+  <input type="file" name="<%=inputName%>" class="icon-picker__field" accept=".png, .jpg, .jpeg, .webp, .gif, .svg">
+  <img
+    width="200"
+    height="200"
+    data-src="<%=iconBlank%>"
+    src="<%-placeholder%>"
+    class="b-lazy icon-picker__img"
+  >
+  <div class="icon-picker__wrap">
+    <div class="icon-picker__desc"><%=blockText%></div>
+    <%- include('/partials/btns/primary', {value: "Выбрать файл", notBtn: true}); %> 
+  </div>
+</label>

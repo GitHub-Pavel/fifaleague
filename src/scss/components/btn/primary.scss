@@ -3,7 +3,8 @@
   background: var(--blue-green);
 
   @media (min-width: $md) {
-    &:hover {
+    &:hover,
+    .banner:hover & {
       box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.4);
       background: var(--blue-transparent);
     }

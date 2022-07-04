@@ -1,0 +1,9 @@
+.btsd {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    border-top: 1px solid var(--blue-semi-dark);
+  }
+}

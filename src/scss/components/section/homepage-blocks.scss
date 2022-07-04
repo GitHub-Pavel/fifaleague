@@ -1,0 +1,15 @@
+.homepage-blocks {
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 30px;
+
+    @media (max-width: $lg ) {
+      grid-template-columns: 100%;
+    }
+
+    @media (max-width: $sm) {
+      gap: 30px;
+    }
+  }
+}

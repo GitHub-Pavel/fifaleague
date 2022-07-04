@@ -1,0 +1,12 @@
+.blue-dark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+
+  &__item {
+    @include block_dark_blue;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  }
+}

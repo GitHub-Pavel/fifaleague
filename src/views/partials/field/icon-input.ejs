@@ -1,0 +1,25 @@
+<%
+const classes = {
+  main: classnames('icon-input', {
+    "placeholder": locals.placeholder
+  }),
+  wrap: classnames('icon-input__wrap', {
+    "placeholder-wrap": locals.placeholder
+  })
+}
+
+const title = locals.placeholder ? `title='${locals.placeholder}'` : "";
+const placeholder = locals.inputPlaceholder ? `placeholder='${locals.inputPlaceholder}'` : "";
+%>
+
+<label class="<%=classes.main%>" <%-title%>>
+  <%- include('placeholder', locals); %>
+  <div class="<%=classes.wrap%>">
+    <input type="<%=locals.type%>" class="field" <%-placeholder%>>
+    <div class="icon-input__icon">
+      <svg width="16" height="16">
+        <use href="#<%=locals.icon%>"></use>
+      </svg>
+    </div>
+  </div>
+</label>

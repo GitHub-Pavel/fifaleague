@@ -1,0 +1,187 @@
+<%
+const pageinfo = {
+  title: 'Tournament',
+  meta: true,
+  authorized: true,
+  footer: {
+    background: "img/footer_bg-2.jpg"
+  },
+  authorizedInfo: {
+    messages: 3,
+    user: {
+      media: true,
+      mediaUrl: "img/user.svg",
+      name: "Сергей"
+    },
+    getMenu() {
+      const messages = this.messages;
+      return [
+        {count: messages, value: "Сообщения"},
+        {value: "Профиль"},
+        {value: "Настройки"},
+        {value: "Выход"},
+      ];
+    }
+  },
+  state: {
+    tables: {
+      profile: {
+        info: [
+          {name: "Формат:", value: "Лига"},
+          {name: "Сроки проведения:", value: "19 Январь 2020 - 1 Март 2020"},
+          {name: "Срок регистрации:", value: "11 Январь 2020 - 18 Январь 2020"},
+        ],
+        dates: [
+          {name: "Участников:", value: "243"},
+          {name: "Статус:", value: "Стартовал"},
+          {name: "Модератор", value: "Имя пользователя"},
+        ]
+      },
+    }
+  }
+}; 
+%> 
+   
+<!doctype html> 
+<html lang="ru">
+  <%- include('common/head', pageinfo); %> 
+  
+    <%- include('partials/section/dark-blue/head', {class: 'profileinfo'}); %>
+      <div class="profileinfo-user profileinfo-user--tournament">
+        <div class="profileinfo-user__img-wrap">
+          <img
+            width="200"
+            height="200"
+            data-src="img/pages/profile/user.jpg"
+            src="<%- placeholder %>"
+            class="b-lazy profileinfo-user__img"
+            alt="<%= pageinfo.authorizedInfo.user.name %>"
+            title="<%= pageinfo.authorizedInfo.user.name %>"
+          >
+        </div>
+      </div>
+      <div class="profileinfo-infoblock">
+        <form class="profileinfo-infoblock-user profileinfo-infoblock-user--tournament">
+          <h4 class="profileinfo-infoblock-user__name">Назнание турнира</h4>
+          <a href="#" class="profileinfo-infoblock-user__link" title="Регламент турнира">Регламент турнира</a>
+          <div class="profileinfo-infoblock-user__btn">
+            <%- include('/partials/btns/primary', {value: "Зарегистрировать результат"}); %> 
+          </div>
+        </form>
+        <a href="#" class="profileinfo-infoblock__link" title="Пожаловаться на турнир">Пожаловаться на турнир</a>
+        <div class="profileinfo-infoblock__tables profileinfo-infoblock__tables--tournament">
+          <div class="profileinfo-infoblock__table-dates">
+            <%- include('/partials/tables/classic', {table: pageinfo.state.tables.profile.info}); %>
+          </div>
+          <div class="profileinfo-infoblock__table-info">
+            <%- include('/partials/tables/classic', {table: pageinfo.state.tables.profile.dates}); %>
+          </div>
+        </div>
+      </div>
+    <%- include('partials/section/dark-blue/foot'); %>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="text-center">Последние результаты</h2>
+          <%- include('/partials/field/select', {values: [
+            {name: "fifa_2020", value: "Название турнира FIFA 2020"},
+            {name: "fifa_2021", value: "Название турнира FIFA 2021"},
+            {name: "fifa_2022", value: "Название турнира FIFA 2022"},
+          ]}); %>
+        </div>
+  
+        <div class="section__dark-blue-wrap">
+          <div class="tabs dark-blue-tabs">
+            <div class="tabs-head">
+              <button class="tabs-button">Сыгранные матчи</button>
+              <button class="tabs-button">Статистика турнира</button>
+            </div>
+            <div class="tabs-body">
+              <div class="tabs-content">
+                <% for (let i=0; i<6; i++) { %>
+                  <%- include('/partials/cards/game-card'); %>
+                <% } %>
+              </div>
+              <div class="tabs-content">
+                <table class="statistictable">
+                  <tbody>
+                    <tr>
+                      <th>#</th>
+                      <th></th>
+                      <th>Команда</th>
+                      <th>Город</th>
+                      <th>Рейтинг</th>
+                      <th>Игры</th>
+                      <th>В</th>
+                      <th>Н</th>
+                      <th>П</th>
+                      <th>ГЗ</th>
+                      <th>ГП</th>
+                      <th>РМ</th>
+                      <th>О</th>
+                    </tr>
+                    <% for(let i=0; i<10; i++) { %>
+                      <tr>
+                        <td><%=i+1%></td>
+                        <td>
+                          <img
+                            width="40"
+                            height="40"
+                            data-src="img/user.svg"
+                            src="<%- placeholder %>"
+                            class="b-lazy"
+                            title="Username"
+                          >
+                        </td>
+                        <td>
+                          <div class="text text-big">Название команды</div>
+                          <div class="text">( Капитан команды )</div>
+                        </td>
+                        <td>
+                          <div class="text text-big">Ростов-на-Дону</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>Рейтинг:</span> 95</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>Игры:</span> 74</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>В:</span> 64</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>Н:</span> 5</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>П:</span> 5</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>ГЗ:</span> 269</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>ГП:</span> 269</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>РМ:</span> 269</div>
+                        </td>
+                        <td>
+                          <div class="text text-big"><span>О:</span> 269</div>
+                        </td>
+                      </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+                <%- include('/partials/elements/pagination'); %>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+
+    
+  
+  <%- include('common/foot', pageinfo); %>
+</html>
